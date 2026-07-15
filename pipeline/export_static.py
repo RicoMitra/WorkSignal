@@ -14,7 +14,7 @@ from src.database import query, role_skill_summary, role_summary
 from src.pipeline import run
 
 
-ARTIFACTS = ("overview.json", "role_skills.json", "clusters.json", "evidence_jobs.json")
+ARTIFACTS = ("metadata.json", "overview.json", "roles.json", "role_skills.json", "skill_matrix.json", "clusters.json", "evidence_jobs.json")
 
 
 def records(frame: pd.DataFrame) -> list[dict[str, object]]:
@@ -48,6 +48,14 @@ def export_static(input_path: Path, processed_dir: Path, output_dir: Path, publi
     role_skills = {
         role: records(role_skill_summary(database, role).head(15))
         for role in roles["role"].tolist()
+    }
+    metadata = {
+        "generated_at": generated_at,
+        "source": "Bundled illustrative public sample",
+        "license": "Original demo fixture; replace through the documented local CSV refresh workflow.",
+        "row_count": int(query(database, "select count(*) as count from jobs").iloc[0]["count"]),
+        "retrieval_date": None,
+        "limitations": "Static educational sample. No live scraping, paid API, or career advice.",
     }
     cluster_rows = query(
         database,
@@ -83,7 +91,10 @@ def export_static(input_path: Path, processed_dir: Path, output_dir: Path, publi
         "role_comparison": records(roles),
     }
     write_json(output_dir, "overview.json", overview)
+    write_json(output_dir, "metadata.json", metadata)
+    write_json(output_dir, "roles.json", {"generated_at": generated_at, "roles": records(roles)})
     write_json(output_dir, "role_skills.json", {"generated_at": generated_at, "roles": role_skills})
+    write_json(output_dir, "skill_matrix.json", {"generated_at": generated_at, "roles": role_skills, "skills": sorted({item["skill"] for values in role_skills.values() for item in values})})
     write_json(output_dir, "clusters.json", {"generated_at": generated_at, "exploratory": True, "clusters": clusters})
     write_json(output_dir, "evidence_jobs.json", {"generated_at": generated_at, "jobs": records(evidence)})
     public_dir.mkdir(parents=True, exist_ok=True)

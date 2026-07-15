@@ -33,6 +33,12 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--input", type=Path, default=Path("pipeline/data/raw/sample_jobs.csv"))
     parser.add_argument("--output", type=Path, default=Path("pipeline/data/processed"))
+    parser.add_argument("--out", type=Path, help="Optional static JSON directory for the Next.js interface")
     parser.add_argument("--source", default="sample")
     args = parser.parse_args()
-    print(run(args.input, args.output, args.source))
+    if args.out:
+        from export_static import export_static
+
+        print(export_static(args.input, args.output, Path("pipeline/outputs"), args.out, args.source)["kpis"])
+    else:
+        print(run(args.input, args.output, args.source))

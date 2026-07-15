@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "SkillAtlas | Indonesia Job Market Evidence",
+  title: "WorkSignal | Job-market intelligence workspace",
   description: "A reproducible analysis of observed skills in Indonesian job descriptions.",
 };
 

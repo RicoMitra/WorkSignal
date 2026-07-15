@@ -16,7 +16,7 @@ DATABASE = ROOT / "pipeline" / "data" / "processed" / "job_market.db"
 SAMPLE = ROOT / "pipeline" / "data" / "raw" / "sample_jobs.csv"
 ROLES = ["All roles", "Data Analyst", "Data Scientist", "ML Engineer", "AI Engineer", "Business Analyst", "Software Engineer"]
 
-st.set_page_config(page_title="SkillAtlas | Job market evidence", layout="wide", initial_sidebar_state="expanded")
+st.set_page_config(page_title="WorkSignal | Job-market intelligence workspace", layout="wide", initial_sidebar_state="expanded")
 st.markdown("""<style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 :root { --paper:#f5f3ed; --panel:#fcfbf7; --ink:#17201c; --muted:#68736b; --line:#d8ded5; --forest:#153b2b; --emerald:#207451; --soft:#e8f1e9; }
@@ -107,7 +107,7 @@ if ensure_database(SAMPLE, DATABASE):
 
 with st.sidebar:
     st.markdown("<div class='eyebrow' style='color:#a8d4b6;margin-top:.8rem'>Market intelligence</div>", unsafe_allow_html=True)
-    st.title("SkillAtlas")
+    st.title("WorkSignal")
     st.caption("Observed job-market requirements. No hiring predictions.")
     st.divider()
     page = st.radio("Explore", ["Overview", "Roles", "Clusters", "Skill Gap", "Methods"])

@@ -2,32 +2,25 @@
 
 ## Aesthetic direction
 
-Professional job-board analytics: warm paper neutrals, deep ink typography, a high-contrast forest sidebar, and restrained emerald evidence accents. The UI is inspired by the clarity of Wellfound, Linear, and Palantir Foundry—not copied from any of them.
+WorkSignal is a scrollable editorial intelligence product: warm paper, deep ink, restrained forest-green evidence marks, technical borders, and no dashboard navigation.
 
 ## Dials
 
-- Design variance: 5/10
-- Motion intensity: 2/10
+- Design variance: 6/10
+- Motion intensity: 3/10
 - Visual density: 5/10
 
 ## Tokens
 
-- Background: `#f5f3ed`
-- Panel: `#fcfbf7`
-- Ink: `#17201c`
-- Muted: `#68736b`
-- Sidebar: `#153b2b`
-- Accent: `#207451`
+- Paper `#f4f4ee`; ink `#171b18`; muted `#59635c`; line `#bac1b9`; accent `#195b3b`.
+- Use high-contrast mono labels and large sans editorial headings.
+- No gradients, neon, emoji UI, KPI grids, chart galleries, or page tabs.
 
-## Rules
+## Interaction
 
-- English UI; direct, evidence-based copy.
-- Use native Streamlit elements with bespoke CSS, real labels, visible keyboard focus, and light chart/table surfaces.
-- Use Plus Jakarta Sans for interface text and DM Mono only for labels and provenance badges.
-- KPI cards, source/date badges, compact insights, and section dividers establish hierarchy; avoid nested card stacks.
-- No emoji UI, gradients, fake live data, dark chart/table blocks, or horizontal scrolling at mobile width.
-- Prefer subtle transition properties only; respect reduced motion.
+- Framer Motion provides small tap feedback only; reduced-motion removes non-essential movement.
+- 44px touch targets, visible focus rings, and a one-column mobile collapse are required.
 
 ## Last updated
 
-2026-07-15 — redesigned the Streamlit visual layer for the premium analytics direction.
+2026-07-15 — WorkSignal scrollable evidence product.

@@ -173,5 +173,27 @@
         "posting_count": 1
       }
     ]
-  }
+  },
+  "skills": [
+    "AWS",
+    "Azure",
+    "Communication",
+    "Docker",
+    "Excel",
+    "FastAPI",
+    "GCP",
+    "Git",
+    "Kubernetes",
+    "LLMs",
+    "Pandas",
+    "Power BI",
+    "PyTorch",
+    "Python",
+    "React",
+    "SQL",
+    "Tableau",
+    "TensorFlow",
+    "TypeScript",
+    "scikit-learn"
+  ]
 }

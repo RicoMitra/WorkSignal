@@ -1,10 +1,20 @@
-# SkillAtlas — Indonesia Job Market Skill Analyzer
+# WorkSignal — Job-market intelligence workspace
 
 A reproducible data product that examines skills explicitly observed in Indonesian job-description samples across Data Analyst, Data Scientist, ML Engineer, AI Engineer, Business Analyst, and Software Engineer roles.
 
 The Python pipeline is the source of truth. It cleans CSV data, maps roles, extracts skills from a transparent regex dictionary, stores results in SQLite, runs exploratory clustering, and exports static JSON summaries. The Next.js dashboard only renders those summaries; it does not recreate analysis in JavaScript.
 
 > This is an educational sample, not live job-market intelligence, career advice, hiring prediction, or a job-board scraper.
+
+## Refreshing static evidence
+
+Place a CSV with `title`, `description`, `company`, `location`, and optional `posted_at` fields in `pipeline/data/raw/`, then run:
+
+```powershell
+python pipeline/export_static.py --input pipeline/data/raw/sample_jobs.csv --public web/public/data
+```
+
+The command regenerates `metadata.json`, `overview.json`, `roles.json`, `role_skills.json`, `skill_matrix.json`, `clusters.json`, and `evidence_jobs.json`. The repository bundles only its original demo fixture. Any external dataset must have its license, fields, and redistribution terms verified before it is committed; otherwise use this local refresh path.
 
 ## Product views
 

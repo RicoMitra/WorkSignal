@@ -1,6 +1,6 @@
 # Project Context
 
-SkillAtlas analyzes public job descriptions for six target roles: Data Analyst, Data Scientist, ML Engineer, AI Engineer, Business Analyst, and Software Engineer. Raw data is normalized, mapped to one or more roles through documented title rules, processed through a regex skill dictionary, and stored in SQLite.
+WorkSignal analyzes public job descriptions for six target roles: Data Analyst, Data Scientist, ML Engineer, AI Engineer, Business Analyst, and Software Engineer. Raw data is normalized, mapped to one or more roles through documented title rules, processed through a regex skill dictionary, and stored in SQLite.
 
 The primary Next.js UI is English and uses a job-board-analytics information architecture: filters, evidence, role comparison, exploratory clusters, and a transparent skill-gap explorer. The Python pipeline exports the dashboard's static JSON contract; the frontend is presentation-only. A role count may exceed unique postings because ambiguous titles are intentionally multi-label.
 

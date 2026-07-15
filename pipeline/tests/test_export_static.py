@@ -16,11 +16,13 @@ def test_export_static_writes_frontend_contract_files(tmp_path):
         public_dir=public_dir,
     )
 
-    expected = {"overview.json", "role_skills.json", "clusters.json", "evidence_jobs.json"}
+    expected = {"metadata.json", "overview.json", "roles.json", "role_skills.json", "skill_matrix.json", "clusters.json", "evidence_jobs.json"}
     assert {path.name for path in output_dir.glob("*.json")} == expected
     assert {path.name for path in public_dir.glob("*.json")} == expected
 
     overview = json.loads((output_dir / "overview.json").read_text(encoding="utf-8"))
     role_skills = json.loads((output_dir / "role_skills.json").read_text(encoding="utf-8"))
+    metadata = json.loads((output_dir / "metadata.json").read_text(encoding="utf-8"))
     assert overview["kpis"]["matched_postings"] == 12
     assert "Data Analyst" in role_skills["roles"]
+    assert metadata["row_count"] == 12
