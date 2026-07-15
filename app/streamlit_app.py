@@ -2,8 +2,12 @@ from pathlib import Path
 
 import streamlit as st
 
-from src.database import query, role_skill_summary, role_summary
-from src.recommend import skill_gap
+from bootstrap import add_project_root
+
+add_project_root()
+
+from src.database import query, role_skill_summary, role_summary  # noqa: E402
+from src.recommend import skill_gap  # noqa: E402
 
 
 ROOT = Path(__file__).resolve().parents[1]
