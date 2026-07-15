@@ -8,3 +8,4 @@ pipeline/data/raw/full_*.csv
 web/node_modules/
 web/.next/
 web/.vercel/
+web/*.tsbuildinfo
